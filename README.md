@@ -1,9 +1,9 @@
-# Combining Hybrid Architecture and Pseudo-label for Semi-supervised Abdominal Organ Segmentation
+# Two-stage PHTrans for Abdominal Organ Segmentation
 
-This repository is a solution for the [MICCAI FLARE2022 challenge](https://flare22.grand-challenge.org/)
+This repository is a solution for the [MICCAI FLARE2022 challenge](https://flare22.grand-challenge.org/). A detailed description of the method introduction, experiments and analysis of the results for this solution is presented in paper : [Combining Hybrid Architecture and Pseudo-label for Semi-supervised Abdominal Organ Segmentation](https://arxiv.org/abs/2207.11512). 
 
 <div align="center">
-  <img src="img/method.png" width="70%">
+  <img src="img/method.png" width="80%">
 </div>
 
  
