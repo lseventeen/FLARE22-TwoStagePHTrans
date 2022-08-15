@@ -21,28 +21,29 @@ pip install -r requirements.txt
 
  
 ## Datasets processing
-Download datasets [BCV](https://www.dropbox.com/sh/z4hbbzqai0ilqht/AAARqnQhjq3wQcSVFNR__6xNa?dl=0https://www.dropbox.com/sh/z4hbbzqai0ilqht/AAARqnQhjq3wQcSVFNR__6xNa?dl=0) and [ACDC](https://acdc.creatis.insa-lyon.fr/description/databases.html). Type this in the terminal to perform dataset partitioning followed by [nnFormer](https://github.com/282857341/nnFormer). 
+Download [FLARE 2022](https://flare22.grand-challenge.org/Dataset/) datasets. Generate pseudo-labels for unlabeled data based on the repository [PHTrans](https://github.com/lseventeen/PHTrans). Modify the data path in the [config.py](https://github.com/lseventeen/FLARE22-TwoStagePHTrans/blob/master/config.py) file. Type this in the terminal to perform dataset processing:
  
 ```
-PHTrans_BCV -dataset_path DATASET_PATH
-PHTrans_ACDC -dataset_path DATASET_PATH
+python data_processing.py
 ```
-Preprocess the BCV and ACDC datasets according to the uploaded nnUNet package
+
 ## Training
-Type this in terminal to run train
+Type this in terminal to run coarse segmentation train:
  
 ```
-PHTrans_train -task 17OR27 
+python coarse_train.py
 ```
-## Test
-Type this in terminal to test:
+Type this in terminal to run fine segmentation train:
  
 ```
-PHTrans_train -task 17OR27 -eei EXPERIMENT_ID -val
+python fine_train.py
 ```
-To replicate the results in the paper, we have prepared the [download link](https://drive.google.com/drive/folders/1lzj8SJgwGQG-lP9D-pzB1y6RNa6pzVsv?usp=sharing) of pre-trained models.
+## Inference
+Type this in terminal to Inference:
+ 
+```
+python predict.py -dp DATA_PATH -op SAVE_RESULTS_PATH
+```
 
-## Acknowledgements
 
 
-The 3D Swin Transformer block of PHTrans refers to the source code repository of [Swin Transformer](https://github.com/microsoft/Swin-Transformer) and part of codes are reused from the [nnU-Net](https://github.com/MIC-DKFZ/nnUNet). Thanks to Liu Ze and Fabian Isensee for the open source code.
